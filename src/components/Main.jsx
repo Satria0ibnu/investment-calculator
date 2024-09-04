@@ -11,15 +11,29 @@ export default function Main() {
          })
     
         
-        function inputChangeHandler (event) {
-            const {name, value} = event.target;
-            const updatedInfo = {
-                ...inputData,
-                [name] : Number(value) || 0
-            };
+        // my initial solution
+        // function inputChangeHandler (event) {
+        //     const {name, value} = event.target;
+        //     const updatedInfo = {
+        //         ...inputData,
+        //         [name] : Number(value) 
+        //     };
             
-            setInputData(updatedInfo);
+        //     setInputData(updatedInfo);
+        // }
+
+        // AI solution
+        function inputChangeHandler(event) {
+            const { name, value } = event.target;
+        
+            setInputData((prevState) => ({
+                ...prevState,
+                [name]: Number(value),
+            }));
         }
+
+
+
     return (
         <>
         <section id="user-input">        	
